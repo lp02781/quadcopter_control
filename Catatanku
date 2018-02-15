@@ -1,0 +1,34 @@
+List masalah & solusi : 
+1. Gazebo dan Mavros tidak dapat terkoneksi (tidak dapat heartbeat)
+Solusi : https://github.com/PX4/Devguide/issues/66 
+
+
+Cara jalanin simulasi : 
+1. masuk ke directory Firmware : cd ~/src/Firmare 
+2. Jalankan sitl gazebo : make posix_sitl_default gazebo
+3. Jalankan mavros : roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
+
+Masalah 1 : 
+- Pembacaan data ketinggian masih sangat salah (Sudah selesai)
+- Program offboard tidak bisa berjalan (Pengubahan mode harus dilakukan terus menerus dengan frekuensi minimal 20 Hz)
+
+Untuk memperlambat simulasi (kalau komputer nya ga cukup cepet) : https://github.com/PX4/sitl_gazebo/commit/0686806fd94bd429aa66d2500e5e2aad16d2835b
+
+
+Notes penting : 
+1. Frekuensi Rate harus di atas 2Hz
+
+catatan dari bule perancis :
+- Coba apply erasmus buat 6 bulan di perancis
+
+Aris : 
+- Coba tambahin pengendali PID, terus cobain worst case (saat angin maksimal)
+- Membuat parameter validasi dari pengendali yang sudah dibuat
+Taris : 
+- Dari Pak Muis, nanti buat gerakan melingkar. Terus kasih kamera buat hindarin obstacles
+- Dari si bule muda, coba pake Lidar dulu sebelum pake kamera karena kamera lebih berat, tapi kata Pak Muis sih ga berat karena pake flowcamera
+
+Salam : 
+
+		
+
