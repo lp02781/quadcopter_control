@@ -11,6 +11,10 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  geometry_msgs
+  mavros_msgs
+  pid
+  mavros
 )
 
 ## System dependencies are found with CMake's conventions
@@ -134,7 +138,12 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/billie_node.cpp)
-
+add_executable(offbnode src/offb_node.cpp)
+add_executable(keyboard_command src/keyboard_command.cpp)
+add_executable(position_control src/position_control.cpp)
+add_executable(velocity_control src/velocity_control.cpp)
+add_executable(velocity_trapezium src/velocity_trapezium.cpp)
+add_executable(billie src/billie.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -149,7 +158,26 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+target_link_libraries(offbnode
+   ${catkin_LIBRARIES}
+ )
+target_link_libraries(keyboard_command
+   ${catkin_LIBRARIES}
+ )
+target_link_libraries(position_control
+   ${catkin_LIBRARIES}
+ )
 
+target_link_libraries(velocity_control
+   ${catkin_LIBRARIES}
+ )
+
+target_link_libraries(velocity_trapezium
+   ${catkin_LIBRARIES}
+ )
+target_link_libraries(billie
+   ${catkin_LIBRARIES}
+ )
 #############
 ## Install ##
 #############
